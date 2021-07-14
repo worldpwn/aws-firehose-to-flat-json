@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "no-name",
+    "data": {
+      "count": 230
+    },
+    "meta": {
+      "lang": "eng"
+    },
+    "prop.inside": "some value"
+  },
+  {
+    "id": "2",
+    "name": "cool-name",
+    "data": {
+      "count": 30,
+      "name": "Alex"
+    },
+    "meta": {
+      "lang": "fr"
+    },
+    "prop.inside": "some other",
+    "prop.a": 300
+  }
+]
