@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "name": "no-name",
+        "data_count": 230,
+        "meta_lang": "eng",
+        "prop.inside": "some value"
+    },
+    {
+        "id": "2",
+        "name": "cool-name",
+        "data_count": 30,
+        "data_name": "Alex",
+        "meta_lang": "fr",
+        "prop.inside": "some other",
+        "prop.a": 300
+    }
+]
