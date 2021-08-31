@@ -9,7 +9,7 @@ def test_levelOne_oneLevelObject_shouldStringifyValue():
     assert result == {"value": "12"}
 
 
-def test_levelTwo_oneLevelObject_shouldSameValue():
+def test_levelTwo_oneLevelObject_shouldSaveValue():
     obj = {"value": 12}
     level = 2
     result = flatten_json_object(obj, level)
@@ -23,8 +23,15 @@ def test_levelOne_oneLevelMultiValueObject_shouldStringifyValue():
     assert result == {"value": "12", "other": "[1, 3]"}
 
 
-def test_levelTwo_oneLevelMultiValueObject_shouldStringifyValue():
+def test_levelTwo_oneLevelMultiValueObject_shouldSaveValue():
     obj = {"value": 12, "other": [1, 3]}
     level = 2
     result = flatten_json_object(obj, level)
     assert result == {"value": 12, "other": [1, 3]}
+
+
+def test_levelTwo_twoLevelMultiValueObject_shouldFlattenValue():
+    obj = {"value": 12, "other": {"otherVal": 23}}
+    level = 2
+    result = flatten_json_object(obj, level)
+    assert result == {"value": 12, "other_otherVal": 23}
