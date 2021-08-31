@@ -21,6 +21,12 @@
       "lang": "fr"
     },
     "prop.inside": "some other",
-    "prop.a": 300
+    "prop.a": 300,
+    "nested": { 
+      "data" : {
+        "value" : 123,
+        "array" : [1, 2, 3]
+      }
+    }
   }
 ]

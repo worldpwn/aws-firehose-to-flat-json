@@ -13,6 +13,12 @@
         "data_name": "Alex",
         "meta_lang": "fr",
         "prop.inside": "some other",
-        "prop.a": 300
+        "prop.a": 300,
+        "nested_data_value": 123,
+        "nested_data_array": [
+            1,
+            2,
+            3
+        ]
     }
 ]

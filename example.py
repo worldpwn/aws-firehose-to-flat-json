@@ -5,6 +5,7 @@ import json
 file = open("firehose-file-example.json", "r")
 # Convert it to array
 json_array = json.load(file)
+
 # Flatten it with functions above
 result = flatten_json_array(json_array)
 
