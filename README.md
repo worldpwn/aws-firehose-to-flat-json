@@ -1,11 +1,14 @@
 # aws-firehose-to-flat-json
+ 
+It will convert an array of objects into flatten data. 
+Use stringifyLevel to set the level at which the rest of the data will be JSON stringify.
 
-run example.py to check how it works
+## Example with stringifyLevel 2
 
 It will convert json like this:
 
-<img width="311" alt="Screenshot 2021-07-14 at 09 42 13" src="https://user-images.githubusercontent.com/6351780/125583348-7f19cb26-4a14-44cf-9d08-69d9065069dc.png">
+<img width="311" alt="Screenshot 2021-07-14 at 09 42 13" src="https://user-images.githubusercontent.com/6351780/131465627-31672ccc-7921-4c92-b1f0-1967ba843fef.png">
 
 to this:
 
-<img width="385" alt="Screenshot 2021-07-14 at 09 44 14" src="https://user-images.githubusercontent.com/6351780/125583428-0ae83d4f-de24-4d1d-bfd7-fbd8f0101c47.png">
+<img width="385" alt="Screenshot 2021-07-14 at 09 44 14" src="https://user-images.githubusercontent.com/6351780/131465658-86ff64cb-d117-4564-9930-91c964320f2f.png">
