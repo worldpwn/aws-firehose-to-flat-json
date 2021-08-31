@@ -28,6 +28,7 @@ def flatten_json_object(item, stringifyLevel):
 
     def flatten(x, name=""):
         global currentLevel
+        print(currentLevel)
         if currentLevel == stringifyLevel:
             """In this case, we stop the flattening and will JSON stringify"""
             result[name[:-1]] = json.dumps(x)

@@ -35,3 +35,23 @@ def test_levelTwo_twoLevelMultiValueObject_shouldFlattenValue():
     level = 2
     result = flatten_json_object(obj, level)
     assert result == {"value": 12, "other_otherVal": 23}
+
+
+def test_levelTwo_threeLevelSingleValueObject_shouldStringify():
+    obj = {"other": {"levelThree": {"threeVal": [1]}}}
+    level = 2
+    result = flatten_json_object(obj, level)
+    assert result == {
+        "other_levelThree": json.dumps({"threeVal": [1]}),
+    }
+
+
+def test_levelTwo_threeLevelMultiValueObject_shouldFlattenValue():
+    obj = {"value": 12, "other": {"otherVal": 23, "levelThree": {"threeVal": [1]}}}
+    level = 2
+    result = flatten_json_object(obj, level)
+    assert result == {
+        "value": 12,
+        "other_otherVal": 23,
+        "other_levelThree": json.dumps({"threeVal": [1]}),
+    }
