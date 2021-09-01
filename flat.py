@@ -1,26 +1,25 @@
 import json
 
 
-def flatten_json_array(array, stringifyLevel):
+def flatten_json_array(array):
     """
     It will convert an array of objects into flatten data.
-    Use stringifyLevel to set the level at which the rest of the data will be JSON stringify.
+    As soon as it hit nested data it will be JSON stringified.
 
     Parameters:
     array: array of objects
-    stringifyLevel: the level at which we will stop the flattening recursion and convert the rest data into JSON stringify
     """
     result = []
     for item in array:
-        flat_item = flatten_json_object(item, stringifyLevel)
+        flat_item = flatten_json_object(item)
         result.append(flat_item)
     return result
 
 
-def flatten_json_object(item, stringifyLevel):
+def flatten_json_object(item):
     """
-    Here we receive the object and the level at which we will stringify it.
-    We set the current level to zero and start recursion.
+    It will convert the object into flatten data.
+    As soon as it hit nested data it will be JSON stringified.
     """
     global currentLevel
     currentLevel = 0
@@ -28,8 +27,9 @@ def flatten_json_object(item, stringifyLevel):
 
     def flatten(x, name=""):
         global currentLevel
-        print(currentLevel)
-        if currentLevel == stringifyLevel:
+        print("currentLevel", currentLevel)
+        print(name, x)
+        if currentLevel == 2:
             """In this case, we stop the flattening and will JSON stringify"""
             result[name[:-1]] = json.dumps(x)
         elif type(x) is dict:
