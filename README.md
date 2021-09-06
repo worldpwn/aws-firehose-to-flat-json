@@ -1,7 +1,5 @@
 # aws-firehose-to-flat-json
 
-[![CI](https://github.com/worldpwn/aws-firehose-to-flat-json/actions/workflows/ci.yml/badge.svg)](https://github.com/worldpwn/aws-firehose-to-flat-json/actions/workflows/ci.yml)
-
 It will convert an array of objects into flatten data up to 2 level deep.
 
 ## Example with stringifyLevel 2
