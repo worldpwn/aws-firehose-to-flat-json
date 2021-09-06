@@ -2,45 +2,43 @@
 import json
 
 
-def flatten_json_array(array, stringifyLevel):
+def flatten_json_array(array):
     """
-    It will convert an array of objects into flatten data. 
-    Use stringifyLevel to set the level at which the rest of the data will be JSON stringify.
-
+    It will convert an array of objects into flatten data up to 2n level deep. 
     Parameters:
     array: array of objects
-    stringifyLevel: the level at which we will stop the flattening recursion and convert the rest data into JSON stringify
     """
     result = []
     for item in array:
-        flat_item = flatten_json_object(item, stringifyLevel)
+        flat_item = flatten_json_object(item)
         result.append(flat_item)
     return result
 
 
-def flatten_json_object(item, stringifyLevel):
+def flatten_json_object(item):
     """
     Here we receive the object and the level at which we will stringify it. 
-    We set the current level to zero and start recursion.
+    It will flatten up to level 2 and then convert data to JSON stringify
     """
-    global currentLevent
-    currentLevent = 0
     result = {}
 
-    def flatten(x, name=''):
-        global currentLevent
-        if currentLevent == stringifyLevel:
-            """In this case, we stop the flattening and will JSON stringify"""
-            result[name[:-1]] = json.dumps(x)
-        elif type(x) is dict:
-            """If the object has properties continue flattening"""
-            currentLevent = currentLevent + 1
-            for a in x:
-                flatten(x[a], name + a + '_')
-        else:
-            """Stop flattening"""
-            currentLevent = 0
-            result[name[:-1]] = x
+    print(item)
+    if type(item) is dict:
+        for p in item:
+            firstLevelProp = item[p]
+            if type(firstLevelProp) is dict:
+                for x in firstLevelProp:
+                    secondLevelProp = firstLevelProp[x]
+                    name = p + '_' + x 
+                    if type(secondLevelProp) is dict:
+                        result[name] = json.dumps(secondLevelProp)
+                        value =  json.dumps(secondLevelProp)
+                        print(p + '_' + x + ': ' + json.dumps(secondLevelProp))
+                    else:
+                        result[name] = secondLevelProp
+                        print(p + '_' + x + ': ' + str(secondLevelProp))
+            else:
+                result[p] = firstLevelProp
+                print(p + ': ' + str(firstLevelProp))
 
-    flatten(item)
     return result
