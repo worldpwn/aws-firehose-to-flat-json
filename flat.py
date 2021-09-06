@@ -22,7 +22,6 @@ def flatten_json_object(item):
     """
     result = {}
 
-    print(item)
     if type(item) is dict:
         for p in item:
             firstLevelProp = item[p]
@@ -32,13 +31,9 @@ def flatten_json_object(item):
                     name = p + '_' + x 
                     if type(secondLevelProp) is dict:
                         result[name] = json.dumps(secondLevelProp)
-                        value =  json.dumps(secondLevelProp)
-                        print(p + '_' + x + ': ' + json.dumps(secondLevelProp))
                     else:
                         result[name] = secondLevelProp
-                        print(p + '_' + x + ': ' + str(secondLevelProp))
             else:
                 result[p] = firstLevelProp
-                print(p + ': ' + str(firstLevelProp))
 
     return result
